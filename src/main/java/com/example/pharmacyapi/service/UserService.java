@@ -35,6 +35,7 @@ public class UserService {
         this.authenticationManager = authenticationManager;
     }
 
+
     /**
      * This checks to see if a user's email address already exists in the system before setting their email address and password and registering a new user
      *
@@ -52,10 +53,10 @@ public class UserService {
     }
 
     /**
-     * This checks the user's details to see if they have a JWT token
+     * This method checks the user's details to see if they have a JWT token
      *
      * @param loginRequest
-     * @return user's JWT token if it exists and their login credentials are correct
+     * @return user's JWT token if it exists and their login credentials are valid
      */
     public Optional<String> loginUser(LoginRequest loginRequest) {
 
@@ -73,7 +74,7 @@ public class UserService {
     }
 
     /**
-     * This finds a user by their email address
+     * This method finds a user by their email address
      *
      * @param emailAddress represents the user's email address
      * @return the user associated with the given email address

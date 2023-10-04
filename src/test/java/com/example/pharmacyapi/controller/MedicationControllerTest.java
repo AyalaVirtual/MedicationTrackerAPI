@@ -2,6 +2,7 @@ package com.example.pharmacyapi.controller;
 
 import com.example.pharmacyapi.model.Medication;
 import com.example.pharmacyapi.model.Reminder;
+import com.example.pharmacyapi.model.User;
 import com.example.pharmacyapi.service.MedicationService;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -14,18 +15,13 @@ import java.util.List;
 import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.Optional;
-import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.hamcrest.Matchers.*;
-import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.when;
 import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.http.MediaType;
-import com.jayway.jsonpath.JsonPath;
-import com.jayway.jsonpath.Option;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.mockito.ArgumentMatchers.anyLong;
 
 
@@ -43,6 +39,8 @@ public class MedicationControllerTest {
     @Autowired
     // This is typically used to convert Java objects to JSON and vice versa. It's commonly used in Spring applications for JSON serialization and deserialization.
     ObjectMapper objectMapper;
+
+    User USER_1 = new User(1L, "cigana", "pombagira@gmail.com", "quimbanda7", null);
 
 
     Medication MEDICATION_1 = new Medication(1L, "Name 1", "Description 1", "Dosage 1", true);
@@ -83,7 +81,7 @@ public class MedicationControllerTest {
      * @throws Exception if medication not found
      */
     @Test
-    public void getAuthorRecord_success() throws Exception {
+    public void getMedicationRecord_success() throws Exception {
 
         when(medicationService.getMedicationById(MEDICATION_1.getId())).thenReturn(Optional.of(MEDICATION_1));
 

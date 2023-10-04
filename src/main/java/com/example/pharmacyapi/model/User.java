@@ -33,16 +33,23 @@ public class User {
 
     @OneToMany(mappedBy = "user")
     @LazyCollection(LazyCollectionOption.FALSE) // This means when you fetch an instance of a user, fetch the associated medications
-    private List<Medication> medication;
+    private List<Medication> medicationList;
 
     @OneToMany(mappedBy = "user")
     @LazyCollection(LazyCollectionOption.FALSE) // This means when you fetch an instance of a user, fetch the associated reminders
-    private List<Reminder> reminder;
+    private List<Reminder> reminderList;
 
 
     public User() {
     }
 
+    public User(Long id, String userName, String emailAddress, String password, UserProfile userProfile) {
+        this.id = id;
+        this.userName = userName;
+        this.emailAddress = emailAddress;
+        this.password = password;
+        this.userProfile = userProfile;
+    }
 
     public Long getId() {
         return id;
@@ -74,6 +81,15 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+
+    public UserProfile getUserProfile() {
+        return userProfile;
+    }
+
+    public void setUserProfile(UserProfile userProfile) {
+        this.userProfile = userProfile;
     }
 
 
