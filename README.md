@@ -1,4 +1,4 @@
-# Patient / Medication Tracker & Reminder API 
+# Medication Tracker & Reminder API 
 
 A RestAPI designed to allow patients / pharmacy customers to track current and past medications and set reminders for them. Users are able to search for, add, edit, and delete different medications and their reminders from their account / user profile. 
 
