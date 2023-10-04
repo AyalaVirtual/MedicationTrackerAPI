@@ -37,11 +37,6 @@ public class UserControllerTest {
 
     @Mock
     private UserRepository userRepository;
-    Long userId = 1L;
-    @BeforeEach // This initializes Mockito annotations before each test method
-    public void setUp(){
-        MockitoAnnotations.initMocks(this);
-    }
     
 
     @Test
