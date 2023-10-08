@@ -1,6 +1,7 @@
 package com.example.pharmacyapi.security;
 
 import com.example.pharmacyapi.model.User;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import java.util.Collection;
@@ -11,7 +12,7 @@ public class MyUserDetails implements UserDetails {
 
     private final User user;
 
-
+    // Try @Lazy in method signature as experimental fix for circular dependency errors with testing
     public MyUserDetails(User user) {
         this.user = user;
     }

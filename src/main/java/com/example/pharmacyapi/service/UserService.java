@@ -28,7 +28,8 @@ public class UserService {
 
     @Autowired
     // @Lazy means to load it only when a user registers (only when needed)
-    public UserService(UserRepository userRepository, @Lazy PasswordEncoder passwordEncoder, JWTUtils jwtUtils, AuthenticationManager authenticationManager) {
+    // @Lazy annotation for jwtUtils and authenticationManager are experimental fix
+    public UserService(UserRepository userRepository, @Lazy PasswordEncoder passwordEncoder, @Lazy JWTUtils jwtUtils, @Lazy AuthenticationManager authenticationManager) {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
         this.jwtUtils = jwtUtils;

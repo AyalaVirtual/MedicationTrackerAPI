@@ -1,6 +1,6 @@
 # Medication Tracker & Reminder API 
 
-A RestAPI designed to allow patients / pharmacy customers to track current and past medications and set reminders for them. Users are able to search for, add, edit, and delete different medications and their reminders from their account / user profile. 
+A RestAPI designed to allow patients / pharmacy customers to track current and past medications and set reminders for them. Users are able to register and login to their own personal profile, as well as search for, add, edit, and delete different medications and their reminders from their account. 
 
 ## Technologies Used
 
@@ -9,7 +9,7 @@ A RestAPI designed to allow patients / pharmacy customers to track current and p
 * Spring Boot
 * Spring Data (JPA)
 * Spring Security 
-* JWT Tokens 
+* JSON Web Tokens 
 * H2 Database
 * Postman 
 * Apache Tomcat 
@@ -37,16 +37,18 @@ Finally, I created an ERD (entity relationship diagram) to plan my different mod
 
 | Request Type | URL                             | Functionality                  | Access | 
 |--------------|---------------------------------|--------------------------------|--------|
-| POST         | /api/medications/               | Create a medication            | Public |
-| GET          | /api/medications/               | Get all medications            | Public |
-| GET          | /api/medications/1/             | Get a medication               | Public |
-| PUT          | /api/medications/1/             | Update a medication            | Public |
-| DELETE       | /api/medications/1/             | Delete a medication            | Public |
-| POST         | /api/medications/1/reminders/   | Creating a medication reminder | Public |
-| GET          | /api/medications/reminders/     | Get all medication reminders   | Public |
-| GET          | /api/medications/1/reminders/1/ | Get a medication reminder      | Public |
-| PUT          | /api/medications/1/reminders/1/ | Update a medication reminder   | Public |
-| DELETE       | /api/medications/1/reminders/1/ | Delete a medication reminder   | Public |
+| POST         | /auth/users/register/           | Register a new user            | Public  |
+| POST         | /auth/users/login/              | Login a user                   | Public  |
+| POST         | /api/medications/               | Create a medication            | Private |
+| GET          | /api/medications/               | Get all medications            | Private |
+| GET          | /api/medications/1/             | Get a medication               | Private |
+| PUT          | /api/medications/1/             | Update a medication            | Private |
+| DELETE       | /api/medications/1/             | Delete a medication            | Private |
+| POST         | /api/medications/1/reminders/   | Creating a medication reminder | Private |
+| GET          | /api/medications/reminders/     | Get all medication reminders   | Private |
+| GET          | /api/medications/1/reminders/1/ | Get a medication reminder      | Private |
+| PUT          | /api/medications/1/reminders/1/ | Update a medication reminder   | Private |
+| DELETE       | /api/medications/1/reminders/1/ | Delete a medication reminder   | Private |
 
 
 

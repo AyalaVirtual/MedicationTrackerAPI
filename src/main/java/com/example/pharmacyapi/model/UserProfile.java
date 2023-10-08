@@ -31,6 +31,10 @@ public class UserProfile {
     private User user;
 
 
+    // Experimental fix for testing errors saying missing default constructor
+    public UserProfile() {
+    }
+
     public UserProfile(long id, String firstName, String lastName, String address, String phoneNumber, User user) {
         this.id = id;
         this.firstName = firstName;

@@ -171,9 +171,9 @@ public class MedicationService {
     public Optional<Reminder> getReminderById(Long medicationId, Long reminderId) {
         Optional<Reminder> reminderOptional = reminderRepository.findByIdAndUserId(reminderId, MedicationService.getCurrentLoggedInUser().getId());
 
-        Optional<Medication> medication = medicationRepository.findByIdAndUserId(medicationId, MedicationService.getCurrentLoggedInUser().getId());
+        Optional<Medication> medicationOptional = medicationRepository.findByIdAndUserId(medicationId, MedicationService.getCurrentLoggedInUser().getId());
 
-         if (reminderOptional.isPresent() && medication.get().getReminderList().contains(reminderOptional.get())) {
+         if (reminderOptional.isPresent() && medicationOptional.get().getReminderList().contains(reminderOptional.get())) {
             return reminderOptional;
          } else {
             throw new InformationNotFoundException("reminder with id " + reminderId + " not found");
@@ -189,9 +189,9 @@ public class MedicationService {
      * @return the newly created reminder
      */
     public Reminder createReminder(Long medicationId, Reminder reminderObject) {
-        Optional<Medication> medication = medicationRepository.findByIdAndUserId(medicationId, MedicationService.getCurrentLoggedInUser().getId());
+        Optional<Medication> medicationOptional = medicationRepository.findByIdAndUserId(medicationId, MedicationService.getCurrentLoggedInUser().getId());
 
-        if (medication.isEmpty()) {
+        if (medicationOptional.isEmpty()) {
             throw new InformationNotFoundException("medication with id " + medicationId + " not found");
         }
 
@@ -200,10 +200,10 @@ public class MedicationService {
         if (reminder != null) {
             throw new InformationExistException("reminder with name " + reminderObject.getName() + " already exists");
         }
-        reminderObject.setMedication(medication.get());
+        reminderObject.setMedication(medicationOptional.get());
         reminderObject.setUser(MedicationService.getCurrentLoggedInUser());
-        List<Reminder> reminderList = medication.get().getReminderList();
-        medication.get().addToReminderList(reminderObject);
+        List<Reminder> reminderList = medicationOptional.get().getReminderList();
+        medicationOptional.get().addToReminderList(reminderObject);
         return reminderRepository.save(reminderObject);
     }
 
