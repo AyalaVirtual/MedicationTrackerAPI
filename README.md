@@ -1,6 +1,6 @@
 # Medication Tracker & Reminder API 
 
-A RestAPI designed to allow patients / pharmacy customers to track current and past medications and set reminders for them. Users are able to register and login to their own personal profile, as well as search for, add, edit, and delete different medications and their reminders from their account. 
+The Medication Tracking and Reminder REST API is a sophisticated healthcare management system designed to empower patients and pharmacy customers to efficiently track their current and past medications while setting up convenient reminders. The REST API includes robust user authentication and authorization mechanisms, safeguarding user data and ensuring that each user can access only their own data. Users can effortlessly manage their medications, including adding new prescriptions, editing existing entries, and deleting outdated records, offering them a centralized hub for their medical needs. The reminder system empowers users to create and manage medication reminders. 
 
 ## Technologies Used
 
